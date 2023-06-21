@@ -18,7 +18,34 @@ export function ProductInfo( {product}: Props) {
 
   const [selectecSize, setSelectedSize] = useState(product.sizes[0])
 
-  function addToCart() {}
+  // this is where we call the fucntion useShopping for the cart
+  const { addItem, incrementItem, cartDetails } = useShoppingCart()
+
+  // function to use toast from provider.tsx
+  const {toast} = useToast()
+  const isIncart = !!cartDetails?.[product._id]
+
+  function addToCart() {
+    const item = {
+      ...product,
+      product_data: {
+        size: selectecSize
+      }
+    }
+    isIncart ? incrementItem(item._id) : addItem(item)
+    toast({
+      title: `${item.name} (${getSizeName(selectecSize)})`,
+      description: "Producto añadido al carrito",
+      action: (
+        <Link href = "/cart">
+          <Button variant= "link" className="gap-x-2 whitespace-nowrap">
+            <span> Abrir Carrito</span>
+            <ArrowRight className="h-5 w-5"/>
+          </Button>
+        </Link>
+      )
+    })
+  }
 
   return (
     <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
@@ -49,6 +76,8 @@ export function ProductInfo( {product}: Props) {
         <div className="mt-4 flex">
           <Button
             type="button"
+            // Button to add to cart function
+            onClick={addToCart}
             className="w-full bg-violet-600 py-6 text-base font-medium text-white hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
           >
             Add to cart
