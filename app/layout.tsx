@@ -8,6 +8,7 @@ import { Providers } from "@/components/providers"
 import { SiteBlob } from "@/components/site-blob"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
+import {Hero} from "@/components/hero-ban"
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -35,8 +36,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           < Providers>
           <div className="relative flex min-h-screen flex-col">
             < SiteHeader />
+            <Hero />
             < SiteBlob />
-            <div className="flex-1">{children}</div>
+            <div className="flex-1">{children}</div>  
             < SiteFooter />
           </div>
           </Providers>
