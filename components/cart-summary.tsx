@@ -27,19 +27,32 @@ export function CartSummary() {
   // this is the function for the checkout 
 
   async function onCheckout() {
-    setLoading(true)
-    const response = await fetch("/api/checkout", {
-      method: "POST",
-      body: JSON.stringify(cartDetails)
-    })
-
-    const data = await response.json()
-    const result = await redirectToCheckout(data.id)
-    if (result?.error) {
-      console.log(result)
+    try {
+      setLoading(true)
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        body: JSON.stringify(cartDetails)
+      })
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const rawResponse = await response.text();
+      console.log(rawResponse);
+  
+      const data = JSON.parse(rawResponse);
+      const result = await redirectToCheckout(data.id)
+      if (result?.error) {
+        console.log(result)
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    } finally {
+      setLoading(false)
     }
-    setLoading(false)
   }
+  
 
   return (
     <section
