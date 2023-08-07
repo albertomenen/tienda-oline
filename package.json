@@ -22,7 +22,7 @@
     "@sanity/portable-text-editor": "3.10.3",
     "@sanity/ui": "1.3.3",
     "@sanity/vision": "3.10.3",
-    "@stripe/stripe-js": "1.52.1",
+    "@stripe/stripe-js": "^1.52.1",
     "class-variance-authority": "0.4.0",
     "clsx": "1.2.1",
     "cmdk": "0.2.0",
@@ -36,11 +36,12 @@
     "sanity": "^3.12.1",
     "shadcn-ui": "0.1.2",
     "sharp": "0.31.3",
-    "stripe": "12.5.0",
+    "stripe": "^12.17.0",
     "styled-components": "5.2",
+    "swr": "^2.2.0",
     "tailwind-merge": "1.12.0",
     "tailwindcss-animate": "1.0.5",
-    "use-shopping-cart": "3.1.7"
+    "use-shopping-cart": "^3.1.8"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "3.7.1",

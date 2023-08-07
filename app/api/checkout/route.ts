@@ -20,7 +20,7 @@ export async function POST(request: Request) {
         },
         shipping_options: [
             {
-                shipping_rate: "shr_1NLUl4IzTEr3BZIaCzbiiHUP"
+                shipping_rate: "shr_1NcTtVIzTEr3BZIaTUPUYMlt"
             }
         ],
 
