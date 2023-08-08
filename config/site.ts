@@ -2,7 +2,7 @@ export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
   name: "Fuck Sapos",
-  description: "Esta es la tienda con mas flow de todo Madrid",
+  description: "Los mejores precios de las mejores marcas garantizada por el sapo",
   footer: [
     { name: "Home", href: "/" },
     { name: "About", href: "#" },
