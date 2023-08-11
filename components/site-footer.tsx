@@ -19,11 +19,11 @@ export function SiteFooter() {
           ))}
         </nav>
         <Link
-          href="https://www.fullstack.so"
+          href="/about"
           className="mt-10 block text-center text-xs leading-5"
         >
-          &copy; {new Date().getFullYear()} {siteConfig.name} LLC. All rights
-          reserved.
+          &copy; {new Date().getFullYear()} {siteConfig.name} LLC. Todos los derechos 
+          reservados
         </Link>
       </div>
     </footer>

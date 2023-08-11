@@ -35,11 +35,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           < Providers>
           <div className="relative flex min-h-screen flex-col">
+            < SiteFooter />
             < SiteHeader />
             <Hero />
             < SiteBlob />
             <div className="flex-1">{children}</div>  
-            < SiteFooter />
+            
           </div>
           </Providers>
         </body>
