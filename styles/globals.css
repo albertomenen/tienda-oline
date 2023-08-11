@@ -110,3 +110,32 @@
   margin-bottom: 20px;
 }
 
+/* Terminos y condiciones */
+
+/* Estilo general para la página About */
+.terminos-div {
+  text-align: center;
+}
+
+/* Estilo para el contenido principal */
+.terminos-main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo para el título */
+.terminos-h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilo para los párrafos */
+.terminos-p {
+  padding-top: 65px;
+  line-height: 1.5;
+  color: #555;
+  text-align: justify;
+  margin-bottom: 20px;
+}
