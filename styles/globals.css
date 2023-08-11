@@ -79,3 +79,34 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+/* About page */
+
+/* Estilo general para la página About */
+.about-div {
+  text-align: center;
+}
+
+/* Estilo para el contenido principal */
+.about-main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo para el título */
+.about-h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilo para los párrafos */
+.about-p {
+  padding-top: 65px;
+  line-height: 1.5;
+  color: #555;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
