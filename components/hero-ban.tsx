@@ -21,10 +21,10 @@ export function Hero() {
       <div className="aspect-h-1 aspect-w-1 w-full">
         <Image
          priority
-          src="/products/3107_Summer_1.jpg"
+          src="/perfume-hero.png"
           alt={`Perfume Image`}
-         width={400}
-          height={400}
+         width={2176}
+          height={544}
           quality={100}
          placeholder="blur"
          blurDataURL={`data: image/svg+xml; base64,${toBase64(shimmer(600,750))}`}
