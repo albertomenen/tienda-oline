@@ -86,6 +86,7 @@ export function CartSummary() {
           {isLoading ? "Cargando..." : "Pagar"}
         </Button>
       </div>
+      
     </section>
   )
 }
