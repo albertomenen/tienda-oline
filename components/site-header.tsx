@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation"; 
 import { Edit, Ghost, ShoppingBag } from "lucide-react";
 import { useShoppingCart } from "use-shopping-cart";
-import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,13 +10,11 @@ import { MainNav } from "@/components/main-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export function SiteHeader() {
+  const router = useRouter(); // Usamos useRouter para manejar la navegación
   const searchParams = useSearchParams();
-  const router = useRouter();
   const { cartCount } = useShoppingCart();
-
+  
   const search = searchParams ? searchParams.get('search') || "" : "";
-
-  if (router.pathname.startsWith("/studio")) return null;
 
   function onSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
