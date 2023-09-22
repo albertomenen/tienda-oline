@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { useSearchParams } from "next/navigation"; 
-import { useRouter } from "next/router"; // Importando correctamente useRouter
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 import { Edit, Ghost, ShoppingBag } from "lucide-react";
 import { useShoppingCart } from "use-shopping-cart";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,8 +13,8 @@ import { ThemeToggle } from "@/components/theme-toggle";
 export function SiteHeader() {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { cartCount } = useShoppingCart();
 
-  // Manejando la posibilidad de que searchParams pueda ser null
   const search = searchParams ? searchParams.get('search') || "" : "";
 
   if (router.pathname.startsWith("/studio")) return null;
@@ -37,7 +38,7 @@ export function SiteHeader() {
             autoComplete="off"
             placeholder="Search products..."
             className="h-9 lg:w-[300px]"
-            defaultValue={defaultSearchQuery} // Aquí se usa la constante previamente definida
+            value={search}
           />
         </form>
         <div className="flex items-center space-x-1">
