@@ -1,34 +1,28 @@
-"use client"
+import Link from "next/link";
+import { useRouter } from "next/router"; // Cambiado para usar useRouter en lugar de usePathname y useSearchParams
+import { Edit, Ghost, ShoppingBag } from "lucide-react";
+import { useShoppingCart } from "use-shopping-cart";
 
-import Link from "next/link"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { Edit, Ghost, ShoppingBag } from "lucide-react"
-import { useShoppingCart } from "use-shopping-cart"
-
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { MainNav } from "@/components/main-nav"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { MainNav } from "@/components/main-nav";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function SiteHeader() {
-  const pathname = usePathname()
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  // Count for the cart button
-  const {cartCount} = useShoppingCart()
-  const defaultSearchQuery = searchParams.get("search") ?? ""
+  const router = useRouter();
+  const { cartCount } = useShoppingCart();
 
-  if (pathname.startsWith("/studio"))
-    return null 
+  // Extraemos el parámetro de búsqueda directamente del router
+  const search = router.query.search as string | undefined;
+  const defaultSearchQuery = search ?? "";
 
-  // this si the function in the search-bar thart allow us to change the url and look for the
-  // product we want.
+  if (router.pathname.startsWith("/studio")) return null;
 
-  function onSubmit (event: React.SyntheticEvent<HTMLFormElement >) {
-    event.preventDefault()
-    const formData = new FormData(event.currentTarget)
-    const searchQuery = formData.get("search")
-    router.replace (`/?search=${searchQuery}`)
+  function onSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const searchQuery = formData.get("search");
+    router.replace(`/?search=${searchQuery}`);
   }
 
   return (
@@ -43,8 +37,7 @@ export function SiteHeader() {
             autoComplete="off"
             placeholder="Search products..."
             className="h-9 lg:w-[300px]"
-            // This will make that the users can look what they were looking for before.
-            defaultValue={defaultSearchQuery}
+            defaultValue={defaultSearchQuery} // Aquí se usa la constante previamente definida
           />
         </form>
         <div className="flex items-center space-x-1">
@@ -57,14 +50,14 @@ export function SiteHeader() {
           </Link>
           <ThemeToggle />
           {process.env.NODE_ENV === "development" && (
-            <Link href = "/studio">
-            <Button size = "sm" variant="ghost">
-                <Edit className= "h-5 w-5"/>
-            </Button>
+            <Link href="/studio">
+              <Button size="sm" variant="ghost">
+                <Edit className="h-5 w-5" />
+              </Button>
             </Link>
           )}
         </div>
       </div>
     </header>
-  )
+  );
 }

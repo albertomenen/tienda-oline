@@ -19,7 +19,7 @@ export function SiteFooter() {
           ))}
         </nav>
         <Link
-          href="/about"
+          href="/"
           className="mt-10 block text-center text-xs leading-5"
         >
           &copy; {new Date().getFullYear()} {siteConfig.name} LLC. Todos los derechos 
