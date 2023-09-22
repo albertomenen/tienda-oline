@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useRouter } from "next/router"; // Cambiado para usar useRouter en lugar de usePathname y useSearchParams
+import { useRouter } from "next/router"; 
 import { Edit, Ghost, ShoppingBag } from "lucide-react";
 import { useShoppingCart } from "use-shopping-cart";
 
@@ -12,7 +12,6 @@ export function SiteHeader() {
   const router = useRouter();
   const { cartCount } = useShoppingCart();
 
-  // Extraemos el parámetro de búsqueda directamente del router
   const search = router.query.search as string | undefined;
   const defaultSearchQuery = search ?? "";
 
