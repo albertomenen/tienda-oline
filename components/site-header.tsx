@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { useRouter } from "next/router"; 
+import { useSearchParams } from "next/navigation"; 
+import { useRouter } from "next/router"; // Importando correctamente useRouter
 import { Edit, Ghost, ShoppingBag } from "lucide-react";
 import { useShoppingCart } from "use-shopping-cart";
 
@@ -9,11 +10,11 @@ import { MainNav } from "@/components/main-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export function SiteHeader() {
+  const searchParams = useSearchParams();
   const router = useRouter();
-  const { cartCount } = useShoppingCart();
 
-  const search = router.query.search as string | undefined;
-  const defaultSearchQuery = search ?? "";
+  // Manejando la posibilidad de que searchParams pueda ser null
+  const search = searchParams ? searchParams.get('search') || "" : "";
 
   if (router.pathname.startsWith("/studio")) return null;
 
